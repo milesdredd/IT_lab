@@ -1,0 +1,290 @@
+#include <stdio.h>
+
+struct Complex{
+	float real;
+	float img;
+};
+
+struct Complex add(struct Complex a, struct Complex b){
+	struct Complex result;
+	result.real = a.real + b.real;
+	result.img = a.img + b.img;
+	
+	return result;
+}
+
+int main(){
+	struct Complex c1,c2,sum;
+	
+	printf("give 1st cmplex no.(real img) : ");
+	scanf("%f %f", &c1.real, &c1.img);
+	
+	printf("give 2nd cmplex no.(real img) : ");
+	scanf("%f %f", &c2.real, &c2.img);
+	
+	sum = add(c1,c2);
+	
+	printf("\t\t \033[0;32m Sum is : %.2f + %.2fi\n", sum.real, sum.img);
+}
+#include <stdio.h>
+int main(){
+	int n, max = 0;
+	printf("How many digit in array should be : ");
+	scanf("%d", &n);
+	int arr[n];
+	printf("enter the digits to put in array: ");
+	
+	for(int i = 0; i < n; i++)
+		scanf("%d", &arr[i]);
+		
+	for(int i = 0; i < n; i++){
+		if(arr[i] > max) max = arr[i];
+	}
+	printf("Max : %d\n", max);
+}
+#include <stdio.h>
+int main(){
+	int i,n, max = 0;
+	printf("length of array : ");
+	scanf("%d", &n);
+	int arr[n+1];
+	printf("digits of that array : ");
+	
+	for(i = 0; i < n; i++)
+		scanf("%d", &arr[i]);
+	
+	printf("Array looks like  : ");
+	for(i = 0; i < n; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+	
+	int el,pos;
+	printf("Index and value to replace : ");
+	scanf("%d %d", &el, &pos);
+	
+	i = n;
+	while(i-- >= pos)
+		arr[i+1] = arr[i];
+		
+	arr[i+1] = el;
+	
+	printf("New arrayt is : ");
+	for(i = 0; i <=n; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+}
+#include <stdio.h>
+int main(){
+	int i,n, max = 0;
+	printf("length of array :");
+	scanf("%d", &n);
+	int arr[n];
+	printf("digits in array ");
+	
+	for(i = 0; i < n; i++)
+		scanf("%d", &arr[i]);
+	
+	printf("The Array : ");
+	for(i = 0; i < n; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+	
+	int pos;
+	printf("Please enter the position, at which you want to delete the data ");
+	scanf("%d", &pos);
+	
+	for(i = pos-1; i<n-1;i++)
+		arr[i] = arr[i+1];
+	
+	printf("New array is : ");
+	for(i = 0; i < n-1 ; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+}
+#include <stdio.h>
+int main(){
+	int i,n, max = 0;
+	printf("length of array : ");
+	scanf("%d", &n);
+	int arr[n];
+	printf("put values in array :");
+	
+	for(i = 0; i < n; i++)
+		scanf("%d", &arr[i]);
+	
+	printf("The Array : ");
+	for(i = 0; i < n; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+	
+	int el;
+	printf("Value to Search: ");
+	scanf("%d", &el);
+	
+	int flag = 0;
+	for(i = 0; i<n;i++){
+		if(arr[i] == el){
+			flag++;
+			break;
+		}
+	}
+	
+	if(flag == 1) printf("%d found at %d.",el, i+1);
+	else printf("Value does not exist !");
+	
+}
+#include <stdio.h>
+int main(){
+	int i,n,j, max = 0;
+	printf("length of array : ");
+	scanf("%d", &n);
+	int arr[n];
+	printf("digits to put in array : ");
+	
+	for(i = 0; i < n; i++)
+		scanf("%d", &arr[i]);
+	
+	printf("The Array is : ");
+	for(i = 0; i < n; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+	
+	for(i = 0; i < n; i++){
+		for(j = 0; j < n-1-i; j++){
+			if(arr[j] > arr[j+1]){
+				int temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
+	printf("sorted Array: ");
+	for(i = 0; i < n ; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+			
+	
+}
+#include <stdio.h>
+int main(){
+	int i,n,j,m;
+	printf("Enter the lenght matrix [m x n] : ");
+	scanf("%d %d", &m,&n);
+	int arr[m][n];
+	printf("Enter the digits : ");
+	
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++)
+			scanf("%d", &arr[i][j]);
+	}
+	
+	printf("Array : \n");
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++){
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
+#include <stdio.h>
+int main(){
+	int i,n,j,m;
+	printf("Length of matrix will be  [a b] : ");
+	scanf("%d %d", &m,&n);
+	int arr[m][n];
+	int arr2[m][n];
+	
+	printf("values of array1 : ");
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++)
+			scanf("%d", &arr[i][j]);
+	}
+	
+	printf("The first Array : \n");
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++){
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
+	
+	printf("value of array2 : ");
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++)
+			scanf("%d", &arr2[i][j]);
+	}
+	
+	printf("The second Array : \n");
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++)
+			printf("%d ", arr[i][j]);
+		printf("\n");
+	}
+	
+	int sum[m][n];
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++)
+			sum[i][j] = arr[i][j] + arr2[i][j];
+	}
+	
+	printf("final Array : \n");
+	for(i = 0; i < m; i++){
+		for(j = 0; j < n; j++){
+			printf("%d ", sum[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
+#include <stdio.h>
+
+struct Point{
+	int x;
+	int y;
+};
+
+int main(){
+	struct Point p1 = {3,4};
+	struct Point p2;
+	
+	printf("pls provide cordinates of the 2nd point : ");
+	scanf("%d %d", &p2.x, &p2.y);
+	
+	printf("First Point : (%d,%d)\n", p1.x,p1.y);
+	printf("Second Point : (%d,%d)\n", p2.x,p2.y);
+}
+#include <stdio.h>
+#include <string.h>
+
+struct Student{
+	char name[50];
+	int roll;
+	int marks;
+};
+
+int main(){
+	struct Student students[3];
+	int i, maxI=0;
+	
+	for(i = 0; i < 3; i++){
+		printf("Enter details for %dth student :\n", i+1);
+
+		printf("\tName : ");
+		scanf("%[^\n]", students[i].name);
+		printf("\tRoll No. :");
+		scanf("%d", &students[i].roll);
+		printf("\tTotal Marks : ");
+		scanf("%d", &students[i].marks);
+		getchar();
+	}
+	
+	for(i = 0; i < 3; i++){
+		if(students[i].marks > students[maxI].marks) maxI = i;
+	}
+	
+	printf("\nStudent who got the highest marks:\n");
+	printf("\tName : %s\n", students[maxI].name);
+	printf("\tRoll No. : %d\n", students[maxI].roll);
+	printf("\tTotal Marks : %d\n", students[maxI].marks);
+}
